@@ -1,40 +1,40 @@
-<div class="lg:col-span-3 space-y-6">
-            <section class="glass p-2 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
-                <div class="flex items-center justify-between p-4">
-                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda Académica</h2>
-                    <span class="flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                    </span>
-                </div>
-                
-                <div class="relative group">
-                    <iframe 
-                        src="https://calendar.google.com/calendar/embed?src=36c80867c8b7c71c793800e318b4ae83c1a4cd47febc6848ba0f315ac7950647%40group.calendar.google.com&ctz=America%2FLima&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23050505" 
-                        style="border-width:0; filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2);" 
-                        width="100%" 
-                        height="450" 
-                        frameborder="0" 
-                        scrolling="no"
-                        class="rounded-2xl transition-all duration-500">
-                    </iframe>
-                    <div class="absolute inset-0 pointer-events-none border-2 border-black/20 rounded-2xl"></div>
-                </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Estudios | Contabilidad y Finanzas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; color: #a0a0a0; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .course-item { cursor: pointer; transition: all 0.3s ease; border-left: 0px solid transparent; }
+        .course-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; border-left: 4px solid #3b82f6; padding-left: 1.25rem; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        /* Filtro especial para que el calendario de Google se vea oscuro */
+        .dark-calendar { 
+            filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); 
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-400">
 
-                <div class="p-4">
-                    <button onclick="window.open('https://calendar.google.com')" class="w-full py-3 text-[10px] bg-white/[0.03] border border-white/10 rounded-xl uppercase font-black tracking-widest hover:bg-blue-600 hover:text-white transition-all active:scale-95">
-                        Gestionar Fechas
-                    </button>
-                </div>
-            </section>
-
-            <section class="glass p-5 rounded-3xl border border-white/5">
-                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Recursos de Estudio</h2>
-                <a href="https://drive.google.com" target="_blank" class="flex items-center justify-between p-4 bg-white/[0.02] rounded-2xl border border-white/5 hover:bg-white/5 transition-all text-xs group">
-                    <span class="text-gray-400 group-hover:text-white transition-colors">Google Drive Universitario</span>
-                    <svg class="w-4 h-4 text-blue-500 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </a>
-            </section>
+    <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/80 z-50 backdrop-blur-md">
+        <div>
+            <h1 class="text-xs font-black tracking-[0.3em] text-white uppercase">SISTEMA DE GESTIÓN ACADÉMICA</h1>
+            <p class="text-[10px] text-gray-500 font-mono mt-1 uppercase tracking-tighter">Estudiante de Contabilidad | Lima, Perú</p>
         </div>
+        <div class="text-right">
+            <div id="reloj" class="text-2xl font-light text-white tracking-tighter leading-none">00:00:00</div>
+            <div id="fecha" class="text-[10px] text-blue-500 font-bold uppercase tracking-widest mt-1">---</div>
+        </div>
+    </nav>
+
+    <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
+        
+        <div class="lg:col-span-3 space-y-6">
+            <section class="glass p-5 rounded-3xl border border-white/5">
+                <h2 class="text-[10px] font-black mb-6 text-blue-400 uppercase tracking-[0.2em]">Cursos Ciclo Actual</h2>
+                <div class="space-y-2 overflow-y-auto max-h-[70vh] pr-2">
+                    <div class="course-item p-4 rounded-xl text-xs">
