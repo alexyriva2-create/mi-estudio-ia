@@ -8,8 +8,8 @@
     <style>
         body { background-color: #050505; color: #a0a0a0; }
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .course-item { cursor: pointer; transition: all 0.3s ease; border-left: 0px solid transparent; text-decoration: none; display: block; }
-        .course-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; border-left: 4px solid #3b82f6; padding-left: 1.25rem; }
+        .folder-item { cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: block; }
+        .folder-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; transform: translateY(-2px); }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
         .dark-calendar { filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); }
@@ -32,45 +32,34 @@
     <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
         
         <div class="lg:col-span-3 space-y-6">
-            <section class="glass p-5 rounded-3xl border border-white/5 shadow-xl">
-                <h2 class="text-[10px] font-black mb-6 text-blue-400 uppercase tracking-[0.2em]">Cursos Ciclo 2026-I</h2>
-                <div class="space-y-1 overflow-y-auto max-h-[70vh] pr-2">
-                    
-                    <a href="https://drive.google.com/drive/folders/1TAgIKhsovVrkNvPqfy95lj-naHwdRZMA?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Fundamentos Prácticos de Contabilidad y Costos</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
-                    </a>
+            <section class="glass p-8 rounded-3xl border border-white/5 shadow-xl text-center">
+                <div class="mb-6 flex justify-center">
+                    <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20">
+                        <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="text-sm font-black mb-2 text-white uppercase tracking-[0.2em]">Material del Ciclo</h2>
+                <p class="text-[10px] text-gray-500 mb-8 leading-relaxed px-2">Accede a las carpetas de tus cursos de Contabilidad y Finanzas en un solo lugar.</p>
+                
+                <a href="https://drive.google.com/drive/folders/1LuSVD9_DKTHxB_zpppvF_Zc6lGeiS5z7?usp=drive_link" target="_blank" class="folder-item p-5 rounded-2xl bg-white/[0.03] border border-white/10 shadow-lg">
+                    <span class="text-[11px] font-black text-blue-400 uppercase tracking-[0.2em]">Abrir Repositorio</span>
+                    <p class="text-[9px] text-gray-600 mt-2 italic uppercase">Ver carpetas de cursos →</p>
+                </a>
+            </section>
 
-                    <a href="https://drive.google.com/drive/folders/1KGMQyyn227MzNT_OU4eyjH5BBIJA9pfv?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Matemática Financiera</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+            <section class="glass p-6 rounded-3xl border border-white/5">
+                <h2 class="text-[9px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Accesos Rápidos</h2>
+                <div class="space-y-3">
+                    <a href="https://drive.google.com" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/5 transition-all text-[11px]">
+                        <span class="text-blue-500">📂</span>
+                        <span>Google Drive General</span>
                     </a>
-
-                    <a href="https://drive.google.com/drive/folders/1ywwzr3-_XxeNrUL1TI0A0DFTIN8UatKf?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Estadística Descriptiva y Probabilidades</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    <a href="https://mail.google.com" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/5 transition-all text-[11px]">
+                        <span class="text-blue-500">✉️</span>
+                        <span>Correo Institucional</span>
                     </a>
-
-                    <a href="https://drive.google.com/drive/folders/1x6ZcWCZtydZDGPEdXYkNeIl72lFSWPal?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Economía General</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
-                    </a>
-
-                    <a href="https://drive.google.com/drive/folders/1qznYIOouBbe61TYPXz9FDwXIk_YE_iin?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Administración General I</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
-                    </a>
-
-                    <a href="https://drive.google.com/drive/folders/1zuJR55aQWQkpQxxBCksTUk6JxHPQsisa?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Derecho Constitucional y Civil</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
-                    </a>
-
-                    <a href="https://drive.google.com/drive/folders/1OvtcjbUZcaY7HoCaHeIwFzNhNZ9EemR_?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
-                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Derecho Tributario</p>
-                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
-                    </a>
-
                 </div>
             </section>
         </div>
@@ -80,11 +69,11 @@
                 <div class="flex items-center justify-between mb-10">
                     <div>
                         <h2 class="text-2xl font-light text-white tracking-tight">Estatus del Asistente</h2>
-                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Conectado a tus carpetas de Drive</p>
+                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Autonomía Activa</p>
                     </div>
                     <div class="flex items-center space-x-3 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
                         <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">IA Autónoma</span>
+                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Sincronizado</span>
                     </div>
                 </div>
                 
@@ -96,8 +85,8 @@
                     </div>
                     <div class="max-w-md">
                         <p class="text-2xl text-white font-light tracking-tight">Gestión Activa</p>
-                        <p class="text-sm text-gray-500 mt-4 leading-relaxed">
-                            Analizo automáticamente el contenido de tus nuevas carpetas de Drive. Pídeme resúmenes o dudas de cualquier curso directamente.
+                        <p class="text-sm text-gray-500 mt-4 leading-relaxed px-4">
+                            Analizo automáticamente el contenido de tus carpetas. Pídeme resúmenes o dudas de cualquier materia directamente en el chat.
                         </p>
                     </div>
                 </div>
@@ -107,7 +96,7 @@
                         Abrir Chat Gemini
                     </button>
                     <button class="bg-blue-600 text-white p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-blue-900/40 hover:bg-blue-500 transition-all active:scale-95">
-                        Revisar Recientes
+                        Revisar Análisis
                     </button>
                 </div>
             </section>
@@ -116,8 +105,8 @@
         <div class="lg:col-span-3 space-y-6">
             <section class="glass p-2 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
                 <div class="p-4 flex items-center justify-between border-b border-white/5 mb-2">
-                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda</h2>
-                    <span class="text-[9px] text-gray-600 font-mono">LIVE</span>
+                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda Académica</h2>
+                    <span class="text-[9px] text-gray-600 font-mono tracking-widest">LIVE</span>
                 </div>
                 
                 <div class="px-2">
@@ -135,14 +124,6 @@
                         Google Calendar
                     </button>
                 </div>
-            </section>
-
-            <section class="glass p-5 rounded-3xl border border-white/5">
-                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Raíz de Archivos</h2>
-                <a href="https://drive.google.com" target="_blank" class="flex items-center justify-between p-4 bg-white/[0.02] rounded-2xl hover:bg-white/5 transition-all text-xs group border border-white/5">
-                    <span class="font-bold tracking-tight">Drive Universitario</span>
-                    <svg class="w-4 h-4 text-blue-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
             </section>
         </div>
     </div>
