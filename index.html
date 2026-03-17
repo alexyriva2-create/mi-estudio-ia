@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGA | Dashboard Autónomo</title>
+    <title>SGA | Dashboard Académico Autónomo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #a0a0a0; }
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .course-item { cursor: pointer; transition: all 0.3s ease; border-left: 0px solid transparent; }
+        .course-item { cursor: pointer; transition: all 0.3s ease; border-left: 0px solid transparent; text-decoration: none; display: block; }
         .course-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; border-left: 4px solid #3b82f6; padding-left: 1.25rem; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
         .dark-calendar { filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); }
-        .ai-glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
+        .ai-glow { box-shadow: 0 0 30px rgba(59, 130, 246, 0.05); }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-400">
@@ -21,7 +21,7 @@
     <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/90 z-50 backdrop-blur-md">
         <div>
             <h1 class="text-xs font-black tracking-[0.4em] text-white uppercase">SISTEMA DE GESTIÓN ACADÉMICA</h1>
-            <p class="text-[10px] text-blue-500 font-mono mt-1 uppercase tracking-tighter font-bold">Modo Asistente Autónomo Activo</p>
+            <p class="text-[10px] text-blue-500 font-mono mt-1 uppercase tracking-tighter font-bold">Asistente de Contabilidad & Finanzas</p>
         </div>
         <div class="text-right">
             <div id="reloj" class="text-2xl font-light text-white tracking-tighter leading-none font-mono">00:00:00</div>
@@ -32,30 +32,45 @@
     <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
         
         <div class="lg:col-span-3 space-y-6">
-            <section class="glass p-5 rounded-3xl border border-white/5">
+            <section class="glass p-5 rounded-3xl border border-white/5 shadow-xl">
                 <h2 class="text-[10px] font-black mb-6 text-blue-400 uppercase tracking-[0.2em]">Cursos Ciclo 2026-I</h2>
                 <div class="space-y-1 overflow-y-auto max-h-[70vh] pr-2">
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Fundamentos Prácticos de Contabilidad y Costos</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Matemática Financiera</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Estadística Descriptiva y Probabilidades</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Economía General</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Administración General I</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Derecho Constitucional y Civil</p>
-                    </div>
-                    <div class="course-item p-4 rounded-xl text-[11px]">
-                        <p class="font-bold uppercase tracking-tight">Derecho Tributario</p>
-                    </div>
+                    
+                    <a href="https://drive.google.com/drive/folders/1TAgIKhsovVrkNvPqfy95lj-naHwdRZMA?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Fundamentos Prácticos de Contabilidad y Costos</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1KGMQyyn227MzNT_OU4eyjH5BBIJA9pfv?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Matemática Financiera</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1ywwzr3-_XxeNrUL1TI0A0DFTIN8UatKf?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Estadística Descriptiva y Probabilidades</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1x6ZcWCZtydZDGPEdXYkNeIl72lFSWPal?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Economía General</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1qznYIOouBbe61TYPXz9FDwXIk_YE_iin?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Administración General I</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1zuJR55aQWQkpQxxBCksTUk6JxHPQsisa?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Derecho Constitucional y Civil</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1OvtcjbUZcaY7HoCaHeIwFzNhNZ9EemR_?usp=drive_link" target="_blank" class="course-item p-4 rounded-xl">
+                        <p class="text-[11px] font-bold uppercase tracking-tight text-gray-300">Derecho Tributario</p>
+                        <p class="text-[9px] text-gray-600 mt-1 italic uppercase tracking-tighter">Material de clase →</p>
+                    </a>
+
                 </div>
             </section>
         </div>
@@ -64,39 +79,35 @@
             <section class="glass p-10 rounded-[2.5rem] border-t-2 border-blue-500/30 h-full flex flex-col shadow-2xl ai-glow">
                 <div class="flex items-center justify-between mb-10">
                     <div>
-                        <h2 class="text-2xl font-light text-white tracking-tight">Hola de nuevo</h2>
-                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Estoy listo para analizar tu Drive</p>
+                        <h2 class="text-2xl font-light text-white tracking-tight">Estatus del Asistente</h2>
+                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Conectado a tus carpetas de Drive</p>
                     </div>
                     <div class="flex items-center space-x-3 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
                         <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Sincronizado con Drive</span>
+                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">IA Autónoma</span>
                     </div>
                 </div>
                 
                 <div class="flex-grow flex flex-col justify-center items-center text-center space-y-8">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-10 animate-pulse"></div>
-                        <div class="relative p-8 rounded-full bg-white/[0.03] border border-white/10 shadow-inner">
-                            <svg class="w-16 h-16 text-blue-500 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.641.32a2 2 0 01-1.536 0l-.641-.32a6 6 0 00-3.86-.517l-2.387.477a2 2 0 00-1.022.547l-.34.34a2 2 0 000 2.828l1.245 1.245a2 2 0 002.828 0L12 18l3.438 3.438a2 2 0 002.828 0l1.245-1.245a2 2 0 000-2.828l-.34-.34zM12 7V3m0 0L9 6m3-3l3 3m-3 11V7"></path>
-                            </svg>
-                        </div>
+                    <div class="relative p-10 rounded-full bg-white/[0.03] border border-white/5 shadow-inner">
+                        <svg class="w-20 h-20 text-blue-500 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
                     </div>
                     <div class="max-w-md">
-                        <p class="text-xl text-white font-light tracking-tight">Control Autónomo</p>
-                        <p class="text-sm text-gray-500 mt-3 leading-relaxed">
-                            No necesitas copiar texto. Solo pídeme en el chat: 
-                            <span class="text-blue-400 italic font-mono block mt-2 text-xs">"Haz un resumen del último PDF de Derecho Tributario"</span>
+                        <p class="text-2xl text-white font-light tracking-tight">Gestión Activa</p>
+                        <p class="text-sm text-gray-500 mt-4 leading-relaxed">
+                            Analizo automáticamente el contenido de tus nuevas carpetas de Drive. Pídeme resúmenes o dudas de cualquier curso directamente.
                         </p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                     <button onclick="window.location.href='https://gemini.google.com'" class="bg-white/5 border border-white/10 p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all shadow-lg active:scale-95">
-                        Ir al Chat de IA
+                        Abrir Chat Gemini
                     </button>
                     <button class="bg-blue-600 text-white p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-blue-900/40 hover:bg-blue-500 transition-all active:scale-95">
-                        Historial de Análisis
+                        Revisar Recientes
                     </button>
                 </div>
             </section>
@@ -104,16 +115,16 @@
 
         <div class="lg:col-span-3 space-y-6">
             <section class="glass p-2 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-                <div class="p-4 flex items-center justify-between">
+                <div class="p-4 flex items-center justify-between border-b border-white/5 mb-2">
                     <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda</h2>
-                    <span class="text-[9px] text-gray-600 font-mono">SINC</span>
+                    <span class="text-[9px] text-gray-600 font-mono">LIVE</span>
                 </div>
                 
                 <div class="px-2">
                     <iframe 
                         src="https://calendar.google.com/calendar/embed?src=36c80867c8b7c71c793800e318b4ae83c1a4cd47febc6848ba0f315ac7950647%40group.calendar.google.com&ctz=America%2FLima&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23050505" 
                         class="dark-calendar rounded-2xl w-full" 
-                        height="400" 
+                        height="420" 
                         frameborder="0" 
                         scrolling="no">
                     </iframe>
@@ -127,9 +138,9 @@
             </section>
 
             <section class="glass p-5 rounded-3xl border border-white/5">
-                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Archivos</h2>
+                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Raíz de Archivos</h2>
                 <a href="https://drive.google.com" target="_blank" class="flex items-center justify-between p-4 bg-white/[0.02] rounded-2xl hover:bg-white/5 transition-all text-xs group border border-white/5">
-                    <span class="font-bold tracking-tight">Ir a Google Drive</span>
+                    <span class="font-bold tracking-tight">Drive Universitario</span>
                     <svg class="w-4 h-4 text-blue-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </section>
