@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Estudios | Contabilidad y Finanzas</title>
+    <title>SGA | Dashboard Autónomo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #a0a0a0; }
@@ -12,22 +12,20 @@
         .course-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; border-left: 4px solid #3b82f6; padding-left: 1.25rem; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
-        /* Filtro especial para que el calendario de Google se vea oscuro */
-        .dark-calendar { 
-            filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); 
-        }
+        .dark-calendar { filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); }
+        .ai-glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-400">
 
-    <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/80 z-50 backdrop-blur-md">
+    <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/90 z-50 backdrop-blur-md">
         <div>
-            <h1 class="text-xs font-black tracking-[0.3em] text-white uppercase">SISTEMA DE GESTIÓN ACADÉMICA</h1>
-            <p class="text-[10px] text-gray-500 font-mono mt-1 uppercase tracking-tighter">Estudiante de Contabilidad | Lima, Perú</p>
+            <h1 class="text-xs font-black tracking-[0.4em] text-white uppercase">SISTEMA DE GESTIÓN ACADÉMICA</h1>
+            <p class="text-[10px] text-blue-500 font-mono mt-1 uppercase tracking-tighter font-bold">Modo Asistente Autónomo Activo</p>
         </div>
         <div class="text-right">
-            <div id="reloj" class="text-2xl font-light text-white tracking-tighter leading-none">00:00:00</div>
-            <div id="fecha" class="text-[10px] text-blue-500 font-bold uppercase tracking-widest mt-1">---</div>
+            <div id="reloj" class="text-2xl font-light text-white tracking-tighter leading-none font-mono">00:00:00</div>
+            <div id="fecha" class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">---</div>
         </div>
     </nav>
 
@@ -35,63 +33,80 @@
         
         <div class="lg:col-span-3 space-y-6">
             <section class="glass p-5 rounded-3xl border border-white/5">
-                <h2 class="text-[10px] font-black mb-6 text-blue-400 uppercase tracking-[0.2em]">Cursos Ciclo Actual</h2>
-                <div class="space-y-2 overflow-y-auto max-h-[70vh] pr-2">
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Fundamentos Prácticos de Contabilidad y Costos</p>
+                <h2 class="text-[10px] font-black mb-6 text-blue-400 uppercase tracking-[0.2em]">Cursos Ciclo 2026-I</h2>
+                <div class="space-y-1 overflow-y-auto max-h-[70vh] pr-2">
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Fundamentos Prácticos de Contabilidad y Costos</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Matemática Financiera</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Matemática Financiera</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Estadística Descriptiva y Probabilidades</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Estadística Descriptiva y Probabilidades</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Economía General</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Economía General</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Administración General I</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Administración General I</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Derecho Constitucional y Civil</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Derecho Constitucional y Civil</p>
                     </div>
-                    <div class="course-item p-4 rounded-xl text-xs">
-                        <p class="font-bold uppercase">Derecho Tributario</p>
+                    <div class="course-item p-4 rounded-xl text-[11px]">
+                        <p class="font-bold uppercase tracking-tight">Derecho Tributario</p>
                     </div>
                 </div>
             </section>
         </div>
 
         <div class="lg:col-span-6">
-            <section class="glass p-8 rounded-[2rem] border-t-2 border-white/10 h-full flex flex-col shadow-2xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-medium text-white tracking-tight">Análisis de Material con IA</h2>
-                    <div class="flex items-center space-x-2">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">En línea</span>
+            <section class="glass p-10 rounded-[2.5rem] border-t-2 border-blue-500/30 h-full flex flex-col shadow-2xl ai-glow">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h2 class="text-2xl font-light text-white tracking-tight">Hola de nuevo</h2>
+                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Estoy listo para analizar tu Drive</p>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Sincronizado con Drive</span>
                     </div>
                 </div>
                 
-                <textarea id="studyText" 
-                    class="flex-grow w-full bg-white/[0.01] border border-white/5 p-6 rounded-2xl text-sm text-gray-200 focus:outline-none focus:border-blue-500/50 transition-all resize-none mb-6 shadow-inner" 
-                    placeholder="Pega aquí el contenido de tus PDFs de Derecho, ejercicios de Matemática Financiera o apuntes para que te ayude a resumir o estudiar..."></textarea>
-                
-                <button onclick="copyAndOpen()" 
-                    class="group relative overflow-hidden bg-white text-black font-black p-5 rounded-2xl transition-all active:scale-95 shadow-xl hover:bg-blue-400 transition-colors">
-                    <span class="relative z-10 flex justify-center items-center tracking-[0.1em] text-xs">
-                        PROCESAR CON GEMINI 
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </span>
-                </button>
-                <p class="text-[10px] text-gray-600 mt-4 text-center italic tracking-wider">El texto se copiará al portapapeles automáticamente.</p>
+                <div class="flex-grow flex flex-col justify-center items-center text-center space-y-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-10 animate-pulse"></div>
+                        <div class="relative p-8 rounded-full bg-white/[0.03] border border-white/10 shadow-inner">
+                            <svg class="w-16 h-16 text-blue-500 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.641.32a2 2 0 01-1.536 0l-.641-.32a6 6 0 00-3.86-.517l-2.387.477a2 2 0 00-1.022.547l-.34.34a2 2 0 000 2.828l1.245 1.245a2 2 0 002.828 0L12 18l3.438 3.438a2 2 0 002.828 0l1.245-1.245a2 2 0 000-2.828l-.34-.34zM12 7V3m0 0L9 6m3-3l3 3m-3 11V7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="max-w-md">
+                        <p class="text-xl text-white font-light tracking-tight">Control Autónomo</p>
+                        <p class="text-sm text-gray-500 mt-3 leading-relaxed">
+                            No necesitas copiar texto. Solo pídeme en el chat: 
+                            <span class="text-blue-400 italic font-mono block mt-2 text-xs">"Haz un resumen del último PDF de Derecho Tributario"</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                    <button onclick="window.location.href='https://gemini.google.com'" class="bg-white/5 border border-white/10 p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all shadow-lg active:scale-95">
+                        Ir al Chat de IA
+                    </button>
+                    <button class="bg-blue-600 text-white p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-blue-900/40 hover:bg-blue-500 transition-all active:scale-95">
+                        Historial de Análisis
+                    </button>
+                </div>
             </section>
         </div>
 
         <div class="lg:col-span-3 space-y-6">
             <section class="glass p-2 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
                 <div class="p-4 flex items-center justify-between">
-                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda Académica</h2>
-                    <svg class="w-3 h-3 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"></path></svg>
+                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda</h2>
+                    <span class="text-[9px] text-gray-600 font-mono">SINC</span>
                 </div>
                 
                 <div class="px-2">
@@ -106,15 +121,15 @@
 
                 <div class="p-4">
                     <button onclick="window.open('https://calendar.google.com')" class="w-full py-3 text-[10px] bg-white/[0.03] border border-white/10 rounded-xl uppercase font-bold tracking-widest hover:bg-white/10 transition-all">
-                        Abrir Google Calendar
+                        Google Calendar
                     </button>
                 </div>
             </section>
 
             <section class="glass p-5 rounded-3xl border border-white/5">
-                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Accesos Directos</h2>
+                <h2 class="text-[10px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Archivos</h2>
                 <a href="https://drive.google.com" target="_blank" class="flex items-center justify-between p-4 bg-white/[0.02] rounded-2xl hover:bg-white/5 transition-all text-xs group border border-white/5">
-                    <span>Google Drive</span>
+                    <span class="font-bold tracking-tight">Ir a Google Drive</span>
                     <svg class="w-4 h-4 text-blue-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </section>
@@ -122,7 +137,6 @@
     </div>
 
     <script>
-        // Actualización del reloj y fecha
         function actualizarReloj() {
             const now = new Date();
             const horas = String(now.getHours()).padStart(2, '0');
@@ -135,17 +149,6 @@
         }
         setInterval(actualizarReloj, 1000);
         actualizarReloj();
-
-        // Función para copiar texto e interactuar conmigo
-        function copyAndOpen() {
-            const text = document.getElementById('studyText').value;
-            if(text) {
-                navigator.clipboard.writeText(text);
-                alert("✓ Material copiado con éxito. ¡Pégalo en nuestro chat de Gemini para empezar el análisis!");
-            } else {
-                alert("El área de texto está vacía. Pega tus apuntes primero.");
-            }
-        }
     </script>
 </body>
 </html>
