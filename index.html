@@ -3,143 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGA | Dashboard Académico Autónomo</title>
+    <title>SGA | Dashboard con Control de Asistencias</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #a0a0a0; }
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .folder-item { cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: block; }
-        .folder-item:hover { background: rgba(59, 130, 246, 0.1); color: #fff; transform: translateY(-2px); }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        .asistencia-btn { transition: all 0.3s ease; }
+        .asistencia-btn:active { scale: 0.9; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
         .dark-calendar { filter: invert(92%) hue-rotate(180deg) brightness(0.6) contrast(1.2); }
-        .ai-glow { box-shadow: 0 0 30px rgba(59, 130, 246, 0.05); }
+        .barra-progreso { transition: width 0.5s ease-in-out; }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-400">
 
-    <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/90 z-50 backdrop-blur-md">
+    <nav class="p-6 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#050505]/95 z-50 backdrop-blur-xl">
         <div>
             <h1 class="text-xs font-black tracking-[0.4em] text-white uppercase">SISTEMA DE GESTIÓN ACADÉMICA</h1>
-            <p class="text-[10px] text-blue-500 font-mono mt-1 uppercase tracking-tighter font-bold">Asistente de Contabilidad & Finanzas</p>
+            <p class="text-[9px] text-blue-500 font-bold mt-1 uppercase tracking-widest">Control de Asistencias 30% Límite</p>
         </div>
         <div class="text-right">
             <div id="reloj" class="text-2xl font-light text-white tracking-tighter leading-none font-mono">00:00:00</div>
-            <div id="fecha" class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">---</div>
+            <div id="fecha" class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1 italic">---</div>
         </div>
     </nav>
 
     <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
         
-        <div class="lg:col-span-3 space-y-6">
-            <section class="glass p-8 rounded-3xl border border-white/5 shadow-xl text-center">
-                <div class="mb-6 flex justify-center">
-                    <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20">
-                        <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-                        </svg>
-                    </div>
+        <div class="lg:col-span-4 space-y-6">
+            <section class="glass p-6 rounded-3xl border border-white/5 shadow-2xl">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Asistencias del Ciclo</h2>
+                    <button onclick="resetAsistencias()" class="text-[8px] text-gray-600 hover:text-red-500 uppercase font-bold transition-colors">Reset</button>
                 </div>
-                <h2 class="text-sm font-black mb-2 text-white uppercase tracking-[0.2em]">Material del Ciclo</h2>
-                <p class="text-[10px] text-gray-500 mb-8 leading-relaxed px-2">Accede a las carpetas de tus cursos de Contabilidad y Finanzas en un solo lugar.</p>
                 
-                <a href="https://drive.google.com/drive/folders/1LuSVD9_DKTHxB_zpppvF_Zc6lGeiS5z7?usp=drive_link" target="_blank" class="folder-item p-5 rounded-2xl bg-white/[0.03] border border-white/10 shadow-lg">
-                    <span class="text-[11px] font-black text-blue-400 uppercase tracking-[0.2em]">Abrir Carpetas</span>
-                    <p class="text-[9px] text-gray-600 mt-2 italic uppercase">Ver carpetas de cursos →</p>
-                </a>
-            </section>
+                <div id="lista-asistencias" class="space-y-4">
+                    </div>
 
-            <section class="glass p-6 rounded-3xl border border-white/5">
-                <h2 class="text-[9px] font-black mb-4 text-gray-500 uppercase tracking-[0.2em]">Accesos Rápidos</h2>
-                <div class="space-y-3">
-                    <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/5 transition-all text-[11px]">
-                        <span class="text-blue-500">📂</span>
-                        <span>Google Drive General</span>
-                    </a>
-                    <a href="https://mail.google.com/mail/u/4/#inbox" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/5 transition-all text-[11px]">
-                        <span class="text-blue-500">✉️</span>
-                        <span>Correo Institucional</span>
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <a href="https://drive.google.com/drive/folders/1LuSVD9_DKTHxB_zpppvF_Zc6lGeiS5z7" target="_blank" class="flex items-center justify-center space-x-2 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-blue-600/20 transition-all text-[10px] font-bold text-white uppercase tracking-widest">
+                        <span>Repositorio de Material</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </section>
         </div>
 
-        <div class="lg:col-span-6">
-            <section class="glass p-10 rounded-[2.5rem] border-t-2 border-blue-500/30 h-full flex flex-col shadow-2xl ai-glow">
-                <div class="flex items-center justify-between mb-10">
-                    <div>
-                        <h2 class="text-2xl font-light text-white tracking-tight">Estatus del Asistente</h2>
-                        <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">Autonomía Activa</p>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Sincronizado</span>
-                    </div>
+        <div class="lg:col-span-5">
+            <section class="glass p-10 rounded-[2.5rem] border-t-2 border-blue-500/30 h-full flex flex-col shadow-2xl">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-light text-white tracking-tight">Estatus Académico</h2>
+                    <p class="text-[10px] text-blue-400 mt-1 uppercase tracking-[0.2em] font-bold">Asistente Autónomo Activo</p>
                 </div>
                 
                 <div class="flex-grow flex flex-col justify-center items-center text-center space-y-8">
-                    <div class="relative p-10 rounded-full bg-white/[0.03] border border-white/5 shadow-inner">
-                        <svg class="w-20 h-20 text-blue-500 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
+                    <div class="p-8 rounded-full bg-white/[0.01] border border-white/5 shadow-inner relative">
+                        <div class="absolute inset-0 bg-blue-500/10 blur-2xl rounded-full"></div>
+                        <svg class="w-16 h-16 text-blue-500 opacity-60 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <div class="max-w-md">
-                        <p class="text-2xl text-white font-light tracking-tight">Gestión Activa</p>
-                        <p class="text-sm text-gray-500 mt-4 leading-relaxed px-4">
-                            Analizo automáticamente el contenido de tus carpetas. Pídeme resúmenes o dudas de cualquier materia directamente en el chat.
-                        </p>
-                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed max-w-xs">Pídeme agendar clases o resumir material de Drive directamente en nuestro chat.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                    <button onclick="window.location.href='https://gemini.google.com'" class="bg-white/5 border border-white/10 p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all shadow-lg active:scale-95">
-                        Abrir Chat Gemini
-                    </button>
-                    <button class="bg-blue-600 text-white p-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-blue-900/40 hover:bg-blue-500 transition-all active:scale-95">
-                        Revisar Análisis
-                    </button>
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <button onclick="window.location.href='https://gemini.google.com'" class="bg-white/5 border border-white/10 p-5 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">Chat IA</button>
+                    <button class="bg-blue-600 text-white p-5 rounded-2xl text-[10px] font-black uppercase tracking-widest">Análisis</button>
                 </div>
             </section>
         </div>
 
-        <div class="lg:col-span-3 space-y-6">
-            <section class="glass p-2 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+        <div class="lg:col-span-3">
+            <section class="glass p-2 rounded-3xl overflow-hidden border border-white/5 shadow-2xl h-full">
                 <div class="p-4 flex items-center justify-between border-b border-white/5 mb-2">
-                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda Académica</h2>
-                    <span class="text-[9px] text-gray-600 font-mono tracking-widest">LIVE</span>
+                    <h2 class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Agenda</h2>
+                    <span class="text-[8px] bg-red-500/20 text-red-400 px-2 py-1 rounded-full animate-pulse">LIVE</span>
                 </div>
-                
-                <div class="px-2">
-                    <iframe 
-                        src="https://calendar.google.com/calendar/embed?src=36c80867c8b7c71c793800e318b4ae83c1a4cd47febc6848ba0f315ac7950647%40group.calendar.google.com&ctz=America%2FLima&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23050505" 
-                        class="dark-calendar rounded-2xl w-full" 
-                        height="420" 
-                        frameborder="0" 
-                        scrolling="no">
-                    </iframe>
-                </div>
-
-                <div class="p-4">
-                    <button onclick="window.open('https://calendar.google.com')" class="w-full py-3 text-[10px] bg-white/[0.03] border border-white/10 rounded-xl uppercase font-bold tracking-widest hover:bg-white/10 transition-all">
-                        Google Calendar
-                    </button>
-                </div>
+                <iframe src="https://calendar.google.com/calendar/embed?src=36c80867c8b7c71c793800e318b4ae83c1a4cd47febc6848ba0f315ac7950647%40group.calendar.google.com&ctz=America%2FLima&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23050505" class="dark-calendar rounded-2xl w-full" height="550" frameborder="0" scrolling="no"></iframe>
             </section>
         </div>
     </div>
 
     <script>
+        // CONFIGURACIÓN DE CURSOS SEGÚN TU HORARIO
+        const cursos = [
+            { id: 1, nombre: "Adm. General I", total: 48, asistencias: 0, faltas: 0, limite: 14 },
+            { id: 2, nombre: "Estadística D.", total: 36, asistencias: 0, faltas: 0, limite: 10 },
+            { id: 3, nombre: "Contab. y Costos", total: 48, asistencias: 0, faltas: 0, limite: 14 },
+            { id: 4, nombre: "Derecho Const.", total: 36, asistencias: 0, faltas: 0, limite: 10 },
+            { id: 5, nombre: "D. Tributario", total: 36, asistencias: 0, faltas: 0, limite: 10 },
+            { id: 6, nombre: "Mat. Financiera", total: 48, asistencias: 0, faltas: 0, limite: 14 },
+            { id: 7, nombre: "Economía Gen.", total: 36, asistencias: 0, faltas: 0, limite: 10 }
+        ];
+
+        function cargarAsistencias() {
+            const data = localStorage.getItem('asistencias_v2');
+            if (data) {
+                const guardado = JSON.parse(data);
+                cursos.forEach((c, i) => {
+                    c.asistencias = guardado[i].asistencias;
+                    c.faltas = guardado[i].faltas;
+                });
+            }
+            render();
+        }
+
+        function marcar(id, tipo) {
+            const curso = cursos.find(c => c.id === id);
+            if (tipo === 'asistencia' && (curso.asistencias + curso.faltas) < curso.total) curso.asistencias++;
+            if (tipo === 'falta' && (curso.asistencias + curso.faltas) < curso.total) curso.faltas++;
+            localStorage.setItem('asistencias_v2', JSON.stringify(cursos));
+            render();
+        }
+
+        function resetAsistencias() {
+            if(confirm("¿Seguro que quieres reiniciar el contador de faltas?")) {
+                localStorage.removeItem('asistencias_v2');
+                location.reload();
+            }
+        }
+
+        function render() {
+            const container = document.getElementById('lista-asistencias');
+            container.innerHTML = '';
+            cursos.forEach(c => {
+                const pctFaltas = (c.faltas / c.limite) * 100;
+                const colorBarra = pctFaltas > 80 ? 'bg-red-500' : 'bg-blue-500';
+                
+                container.innerHTML += `
+                    <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-white uppercase tracking-tighter">${c.nombre}</span>
+                            <span class="text-[9px] font-mono text-gray-500">${c.asistencias} Pres. / ${c.faltas} Faltas (Límite: ${c.limite})</span>
+                        </div>
+                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                            <div class="barra-progreso h-full ${colorBarra}" style="width: ${pctFaltas}%"></div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="marcar(${c.id}, 'asistencia')" class="flex-grow py-2 rounded-lg bg-white/5 text-[8px] uppercase font-black hover:bg-green-500/20 hover:text-green-400 transition-all border border-white/5">Marcar Asistencia</button>
+                            <button onclick="marcar(${c.id}, 'falta')" class="px-4 py-2 rounded-lg bg-white/5 text-[8px] uppercase font-black hover:bg-red-500/20 hover:text-red-400 transition-all border border-white/5">Falta</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
         function actualizarReloj() {
             const now = new Date();
-            const horas = String(now.getHours()).padStart(2, '0');
-            const minutos = String(now.getMinutes()).padStart(2, '0');
-            const segundos = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
-            
-            const opciones = { weekday: 'long', day: 'numeric', month: 'long' };
-            document.getElementById('fecha').textContent = now.toLocaleDateString('es-ES', opciones);
+            document.getElementById('reloj').textContent = now.toLocaleTimeString('es-PE', { hour12: false });
+            document.getElementById('fecha').textContent = now.toLocaleDateString('es-PE', { weekday: 'long', day: 'numeric', month: 'long' });
         }
+
         setInterval(actualizarReloj, 1000);
+        cargarAsistencias();
         actualizarReloj();
     </script>
 </body>
